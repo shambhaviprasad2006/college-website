@@ -1,50 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>Final Project</title>
-	<link rel="stylesheet"	href="together.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Final Project — Rushi N Chapadia</title>
+    <style>
+        :root{
+            --accent:#2b6cb0;
+            --muted:#6b7280;
+            --card:#ffffff;
+            --bg:#f4f6fb;
+            --radius:10px;
+        }
+        *{box-sizing:border-box}
+        body{
+            margin:0;
+            font-family:system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
+            background:var(--bg);
+            color:#1f2937;
+            line-height:1.5;
+            padding:24px;
+            display:flex;
+            justify-content:center;
+        }
+        .container{
+            width:100%;
+            max-width:900px;
+        }
+        header{
+            background:linear-gradient(90deg,var(--accent),#1e40af);
+            color:white;
+            padding:20px;
+            border-radius:var(--radius);
+            box-shadow:0 6px 18px rgba(11,40,73,0.12);
+        }
+        header h1{margin:0 0 8px 0;font-size:1.6rem}
+        nav{display:flex;gap:12px;flex-wrap:wrap}
+        nav a{
+            color:white;
+            text-decoration:none;
+            background:rgba(255,255,255,0.12);
+            padding:8px 12px;
+            border-radius:8px;
+            font-weight:600;
+            transition:background .15s, transform .12s;
+        }
+        nav a:hover{background:rgba(255,255,255,0.18); transform:translateY(-2px)}
+        main{margin-top:18px;display:grid;gap:16px}
+        .card{
+            background:var(--card);
+            padding:18px;
+            border-radius:12px;
+            box-shadow:0 6px 14px rgba(15,23,42,0.06);
+        }
+        h2{margin-top:0}
+        ul{margin:8px 0 0 20px}
+        progress{width:100%;height:18px;appearance:none}
+        progress[value]::-webkit-progress-bar{background:#eee;border-radius:8px}
+        progress[value]::-webkit-progress-value{background:linear-gradient(90deg,var(--accent),#3b82f6);border-radius:8px}
+        details{margin-top:8px}
+        footer{
+            margin-top:18px;
+            padding:14px;
+            text-align:center;
+            font-size:0.95rem;
+            color:var(--muted);
+        }
+        .footer-inner{display:flex;gap:12px;align-items:center;justify-content:center;flex-wrap:wrap}
+        .footer-inner img{height:40px;border-radius:6px}
+        #changes{font-size:0.95rem;background:#fff6e6;border-left:4px solid #f59e0b}
+        @media (max-width:520px){
+            header h1{font-size:1.25rem}
+            nav a{padding:6px 8px}
+        }
+    </style>
 </head>
 <body>
-	<header>
-		<h1>Rushi N Chapadia</h1>
-		<nav>
-			<a href="http:www.gmail.com">One</a>
-			<a href="http:www.facebook.com">Two</a>
-			<a href="http:www.google.com">Three</a>
-			<a href="http:www.rushichapadia.blogspot.com">Blogspot</a>
-		</nav>
-	</header>
-	<section>
-		<h2>Favourite Foods</h2>
-		<ul>
-			<li>Jalebi Fafda</li>
-			<li>Soan Papdi</li>
-			<li>Pav Bhaji</li>
-			<li>Manchurian Noodles</li>
-		</ul>
-	</section>
-	<section>
-		<h2>Achievements</h2>
-		Progress in this course (100%)
-		<progress value="100" max="100"></progress>
-		<br>
-		Progress in the Specialization capstone (20%)
-		<progress value="20" max="100"></progress>
-		Progress in the life goals (45%)
-		<progress value="45" max="100"></progress>
-	</section>
-	<section>
-		<h2>More About Me</h2>
-		<details>
-			<summary>My Childhood</summary>I grew up in the Junagadh,Gujarat,India.I complete my high school at Kota,Rajasthan.I am studying in College for Computer Science
-		</details>
-	</section>
-	<footer>
-		<img src="http://www.intro-webdesign.com/images/newlogo.png" alt="Web Design for Everyone">
-		This page was created by Rushi Chapadia &amp; Colleen van Lent.
-		To learn more about web design , visit
-		<a href="http://www.intro-webdesign.com/">Intro to Web Design</a>
-	</footer>
+    <div class="container">
+    <header>
+        <h1>Rushi N Chapadia</h1>
+        <nav aria-label="Main navigation">
+            <a href="https://www.gmail.com" target="_blank" rel="noopener">One</a>
+            <a href="https://www.facebook.com" target="_blank" rel="noopener">Two</a>
+            <a href="https://www.google.com" target="_blank" rel="noopener">Three</a>
+            <a href="https://rushichapadia.blogspot.com" target="_blank" rel="noopener">Blogspot</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="card" aria-labelledby="foods-heading">
+            <h2 id="foods-heading">Favourite Foods</h2>
+            <ul>
+                <li>Jalebi Fafda</li>
+                <li>Soan Papdi</li>
+                <li>Pav Bhaji</li>
+                <li>Manchurian Noodles</li>
+            </ul>
+        </section>
+
+        <section class="card" aria-labelledby="achievements-heading">
+            <h2 id="achievements-heading">Achievements</h2>
+            <div>
+                <label>Progress in this course (100%)</label>
+                <progress value="100" max="100" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100"></progress>
+            </div>
+            <div style="margin-top:8px">
+                <label>Progress in the Specialization capstone (20%)</label>
+                <progress value="20" max="100" aria-valuemin="0" aria-valuemax="100" aria-valuenow="20"></progress>
+            </div>
+            <div style="margin-top:8px">
+                <label>Progress in the life goals (45%)</label>
+                <progress value="45" max="100" aria-valuemin="0" aria-valuemax="100" aria-valuenow="45"></progress>
+            </div>
+        </section>
+
+        <section class="card" aria-labelledby="about-heading">
+            <h2 id="about-heading">More About Me</h2>
+            <details>
+                <summary>My Childhood</summary>
+                <p>I grew up in Junagadh, Gujarat, India. I completed my high school at Kota, Rajasthan. I am studying in college for Computer Science.</p>
+            </details>
+        </section>
+
+        <footer class="card" aria-labelledby="footer-heading">
+            <div class="footer-inner">
+                <img src="https://www.intro-webdesign.com/images/newlogo.png" alt="Intro to Web Design logo">
+                <div>
+                    <div id="footer-heading">This page was created by Rushi Chapadia &amp; Colleen van Lent.</div>
+                    <div>To learn more about web design, visit <a href="https://www.intro-webdesign.com/" target="_blank" rel="noopener">Intro to Web Design</a></div>
+                </div>
+            </div>
+        </footer>
+
+        <section id="changes" class="card" aria-labelledby="changes-heading">
+            <h2 id="changes-heading">What was changed</h2>
+            <p>
+                Added responsive layout and visual design: header gradient, styled navigation, card-like sections, improved progress bar appearance, and footer layout.
+                Small accessibility improvements (aria labels, better link targets). Fixed some punctuation and spacing in the "More About Me" text.
+            </p>
+        </section>
+    </main>
+    </div>
 </body>
 </html>
